@@ -1,0 +1,15 @@
+﻿
+@model IEnumerable<Teams> <!--If viewbag is null then home button lights up and button lights up if teamName matches-->
+
+<a class="btn btn-block @(ViewBag.SelectedTeam == null ? "btn-primary" : "btn-outline-secondary")" asp-action="Index" asp-controller="Home" asp-route-teamId="">Home</a>
+<br />
+
+@foreach (var x in Model)
+{
+    <a class="btn btn-block @(x.TeamName == ViewBag.SelectedTeam ? "btn-primary" : "btn-outline-secondary")" asp-action="Index" asp-controller="Home" asp-route-teamId="@x.TeamId"
+       asp-route-teamName="@x.TeamName">@x.TeamName</a>
+    <br />
+}
+
+
+<div ></div>
